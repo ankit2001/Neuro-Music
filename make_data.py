@@ -1,6 +1,7 @@
 from imports import *
 
 def make():
+	output = []
 	print("\n")
 	notes_array = []
 	for idx, file in enumerate(glob.glob("dataset/*.mid")):
@@ -26,10 +27,14 @@ def make():
 	print("Output array is :")
 	print("\n")
 	print(notes_array)
-	return notes_array
+	output.append(notes_array)
+	output.append(total_diff_notes_classes)
+	return output
 """
 # Testing purposes
 if __name__ == "__main__":
 	arr = make()
+	print(arr)
 """
+
 
