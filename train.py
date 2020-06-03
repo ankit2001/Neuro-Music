@@ -13,7 +13,9 @@ print("\n")
 print("Summary :")
 print("\n")
 print(model.summary())
-
+weights = "trained_model/01-5.3365.h5"
+if len(weights) > 0:
+	model.load_weights(weights)
 checkpoint = ModelCheckpoint("trained_model/{epoch:02d}-{loss:.4f}.h5", monitor = "loss", save_best_only = True, mode = "min", verbose = 1)
 callbacks_list = [checkpoint]
 model.fit(inputs, outputs, epochs = 100, batch_size = 64, callbacks = callbacks_list)
